@@ -11,7 +11,7 @@ let getInputFilename s = (__SOURCE_DIRECTORY__ + (sprintf "/input/%s.txt" s))
 
 let readInput (s: string) = getInputFilename s |> readLines
 
-let readAsTest (s: string) =
+let readAsText (s: string) =
     let fn = getInputFilename s
     File.ReadAllText(fn)
 

@@ -5,15 +5,12 @@
         <TargetFramework>net9.0</TargetFramework>
     </PropertyGroup>
 
+    <!-- Test packages moved to separate test project -->
+    
     <ItemGroup>
-        <Compile Include="Day1.fs" />
         <Compile Include="Prelude.fs" />
-        <Compile Include="Tests.fs" />
+        <Compile Include="Day1.fs" />
         <Compile Include="Program.fs"/>
     </ItemGroup>
-
-    <ItemGroup>
-      <PackageReference Include="FsUnit.xUnit" Version="7.1.1" />
-    </ItemGroup>
-
+    
 </Project>
