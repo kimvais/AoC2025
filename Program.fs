@@ -19,7 +19,9 @@ let main argv =
     | "1b" -> Day1.part2 "1" ()
     | "2" -> Day2.part1 "2" ()
     | "2b" -> Day2.part2 "2" ()
-    | "test" -> Day2.part2 "test2" ()
+    | "3" -> Day3.part1 "3" ()
+    | "3b" -> Day3.part2 "3" ()
+    | "test" -> Day3.part2 "test3" ()
     |> printfn "%A"
     |> ignore
 
