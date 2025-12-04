@@ -16,6 +16,10 @@ let main argv =
     match day with
     | "1" -> Day1.part1 "1" ()
     | "1b" -> Day1.part2 "1" ()
-    | "test" -> Day1.part2 "test1" ()
+    | "2" -> Day2.part1 "2" ()
+    | "2b" -> Day2.part2 "2" ()
+    | "test" -> Day2.part1 "test2" ()
     |> printfn "%A" |> ignore
+    stopWatch.Stop()
+    printfn "Ran for %0.3f seconds" stopWatch.Elapsed.TotalSeconds
     0
