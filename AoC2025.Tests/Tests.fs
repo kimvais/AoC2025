@@ -1,4 +1,5 @@
 ﻿module AoC2025.Tests
+
 open AoC2025
 
 
@@ -20,3 +21,7 @@ let ``day1, part2`` () =
 let ``day2, part1`` () =
     Day2.part1 "test2" () |> should equal 1227775554L
     Day2.part1 "2" () |> should equal 21139440284L
+
+[<Fact>]
+let ``day2 , part2`` () =
+    Day2.part2 "test2" () |> should equal 4174379265L

@@ -13,13 +13,16 @@ let main argv =
     Kernel.SetConsoleOutputCP 65001u |> ignore
     let day = argv |> getProblem
     let stopWatch = System.Diagnostics.Stopwatch.StartNew()
+
     match day with
     | "1" -> Day1.part1 "1" ()
     | "1b" -> Day1.part2 "1" ()
     | "2" -> Day2.part1 "2" ()
     | "2b" -> Day2.part2 "2" ()
-    | "test" -> Day2.part1 "test2" ()
-    |> printfn "%A" |> ignore
+    | "test" -> Day2.part2 "test2" ()
+    |> printfn "%A"
+    |> ignore
+
     stopWatch.Stop()
     printfn "Ran for %0.3f seconds" stopWatch.Elapsed.TotalSeconds
     0

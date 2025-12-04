@@ -7,7 +7,8 @@ open System.Text.RegularExpressions
 
 let readLines filePath = File.ReadLines(filePath)
 
-let getInputFilename s = (__SOURCE_DIRECTORY__ + (sprintf "/input/%s.txt" s))
+let getInputFilename s =
+    (__SOURCE_DIRECTORY__ + (sprintf "/input/%s.txt" s))
 
 let readInput (s: string) = getInputFilename s |> readLines
 
@@ -44,7 +45,8 @@ let splitByLinefeed (s: string) = s.Split '\n'
 
 let splitByTwoLinefeeds = splitS "\n\n"
 
-let readInputDelimByEmptyLine inputfile = readInput inputfile |> String.concat "\n" |> splitByTwoLinefeeds
+let readInputDelimByEmptyLine inputfile =
+    readInput inputfile |> String.concat "\n" |> splitByTwoLinefeeds
 
 let charToL (c: char) = int64 c - int64 '0'
 
@@ -58,8 +60,7 @@ let hexToBits (value: seq<char>) =
 
 let hexToBits2 value =
     let raw =
-        Convert.ToString(Convert.ToInt64(value.ToString(), 16), 2)
-        |> Seq.map charToInt
+        Convert.ToString(Convert.ToInt64(value.ToString(), 16), 2) |> Seq.map charToInt
 
     match Seq.length raw % 8 with
     | 6 -> Seq.append [ 0; 0 ] raw
@@ -83,13 +84,13 @@ let printImage boolToString (image: bool[][]) =
     printfn ""
 
 let print2d rows =
-    rows |> Seq.iter (fun row -> (row |> Seq.map string |> String.concat "" |> printfn "%s"))
-    
+    rows
+    |> Seq.iter (fun row -> (row |> Seq.map string |> String.concat "" |> printfn "%s"))
+
 let rec cartesian inputs =
     match inputs with
     | h :: [] -> List.fold (fun acc elem -> [ elem ] :: acc) [] h
-    | h :: t ->
-        List.fold (fun cacc celem -> (List.fold (fun acc elem -> (elem :: celem) :: acc) [] h) @ cacc) [] (cartesian t)
+    | h :: t -> List.fold (fun cacc celem -> (List.fold (fun acc elem -> (elem :: celem) :: acc) [] h) @ cacc) [] (cartesian t)
     | _ -> []
 
 let memoize func =
@@ -162,10 +163,7 @@ module AStar =
                             (fun (openSet, gScores, fScores, cameFrom) neighbour ->
                                 let tentativeGScore = gScore + config.gCost current neighbour
 
-                                if
-                                    List.contains neighbour openSet
-                                    && tentativeGScore >= Map.find neighbour gScores
-                                then
+                                if List.contains neighbour openSet && tentativeGScore >= Map.find neighbour gScores then
                                     (openSet, gScores, fScores, cameFrom)
                                 else
                                     let newOpenSet =
