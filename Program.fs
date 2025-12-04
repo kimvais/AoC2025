@@ -16,6 +16,6 @@ let main argv =
     match day with
     | "1" -> Day1.part1 "1" ()
     | "1b" -> Day1.part2 "1" ()
-    | "test" -> Day1.part1 "test1" ()
+    | "test" -> Day1.part2 "test1" ()
     |> printfn "%A" |> ignore
     0

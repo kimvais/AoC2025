@@ -13,5 +13,5 @@ let ``day 1, part 1`` () =
 
 [<Fact>]
 let ``day1, part2`` () =
-    Day1.part2 "test1" () |> should equal 0L
+    Day1.part2 "test1" () |> should equal 6L
     Day1.part2 "1" () |> should equal 0L
