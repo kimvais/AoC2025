@@ -21,8 +21,10 @@ let main argv =
     | "2b" -> Day2.part2 "2" ()
     | "3" -> Day3.part1 "3" ()
     | "3b" -> Day3.part2 "3" ()
-    | "test" -> Day3.part2 "test3" ()
-    |> printfn "%A"
+    | "4" -> Day4.part1 "4" ()
+    | "4b" -> Day4.part2 "4" ()
+    | "test" -> Day4.part1 "test4" ()
+    |> printfn "%d"
     |> ignore
 
     stopWatch.Stop()
