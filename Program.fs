@@ -23,9 +23,10 @@ let main argv =
     | "3b" -> Day3.part2 "3" ()
     | "4" -> Day4.part1 "4" ()
     | "4b" -> Day4.part2 "4" ()
-    | "test" -> Day4.part1 "test4" ()
+    | "5" -> Day5.part1 "5" ()
+    | "5b" -> Day5.part2 "5" ()
+    | "test" -> Day5.part2 "test5" ()
     |> printfn "%d"
-    |> ignore
 
     stopWatch.Stop()
     printfn "Ran for %0.3f seconds" stopWatch.Elapsed.TotalSeconds
