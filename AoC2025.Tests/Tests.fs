@@ -31,12 +31,12 @@ let ``day2 , part2`` () =
 let ``day3, part1`` () =
     Day3.part1 "test3" () |> should equal 357L
     Day3.part1 "3" () |> should equal 17435L
-    
+
 [<Fact>]
 let ``day3, part2`` () =
     Day3.part2 "test3" () |> should equal 3121910778619L
     Day3.part2 "3" () |> should equal 172886048065379L
-    
+
 [<Fact>]
 let ``day4, part1`` () =
     Day4.part1 "test4" () |> should equal 13L
@@ -51,7 +51,8 @@ let ``day4, part2`` () =
 let ``day5, part1`` () =
     Day5.part1 "test5" () |> should equal 3L
     Day5.part1 "5" () |> should equal 756L
-    
+
 [<Fact>]
 let ``day5, part2`` () =
     Day5.part2 "test5" () |> should equal 14L
+    Day5.part2 "5" () |> should equal 355555479253787L
