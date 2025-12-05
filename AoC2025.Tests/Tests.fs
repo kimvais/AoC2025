@@ -56,3 +56,13 @@ let ``day5, part1`` () =
 let ``day5, part2`` () =
     Day5.part2 "test5" () |> should equal 14L
     Day5.part2 "5" () |> should equal 355555479253787L
+
+[<Fact>]
+let ``day6, part1`` () =
+    Day6.part1 "test6" () |> should equal -1L
+    Day6.part1 "6" () |> should equal -1L
+
+[<Fact>]
+let ``day6, part2`` () =
+    Day6.part2 "test6" () |> should equal -1L 
+    Day6.part2 "6" () |> should equal -1L

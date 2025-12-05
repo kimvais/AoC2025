@@ -25,7 +25,9 @@ let main argv =
     | "4b" -> Day4.part2 "4" ()
     | "5" -> Day5.part1 "5" ()
     | "5b" -> Day5.part2 "5" ()
-    | "test" -> Day5.part2 "5" ()
+    | "6" -> Day6.part1 "6" ()
+    | "6b" -> Day6.part2 "6" ()
+    | "test" -> Day6.part1 "test6" ()
     |> printfn "%d"
 
     stopWatch.Stop()
