@@ -9,7 +9,7 @@ let parseOp =
     | op -> failwith $"Invalid operation '{op}'"
 
 let calculate s =
-    let op = Seq.head s |> parseOp
+    let op = Seq.head s |> fun (s:string) -> s.Trim() |> parseOp
     let numbers = Seq.tail s |> Seq.map int64
     numbers |> Seq.reduce op
 
@@ -41,18 +41,18 @@ let rec splitByColumns (columnSpans: (int * int) list) acc (s: string) =
 
 let part1 fn () =
     let input =
-        readInput fn |> Seq.rev |> Seq.map ((splitS "\s+") >> Seq.filter ((<>) ""))
-
-    let instructions = input |> Seq.transpose
+        readInput fn 
+    let spans = input |> findFWFSpans
+    let instructions = input |> Seq.rev |> Seq.map (splitByColumns spans []) |> Seq.transpose
     instructions |> Seq.map calculate |> Seq.sum
 
 let part2 fn () =
     let input = readInput fn
-    let delims = input |> findFWFSpans
+    let spans = input |> findFWFSpans
 
     let operations =
         input
-        |> Seq.map (splitByColumns delims [])
+        |> Seq.map (splitByColumns spans [])
         |> Seq.rev
         |> Seq.transpose
         |> Seq.rev
