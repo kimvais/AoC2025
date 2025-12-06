@@ -65,4 +65,4 @@ let ``day6, part1`` () =
 [<Fact>]
 let ``day6, part2`` () =
     Day6.part2 "test6" () |> should equal 3263827L
-    Day6.part2 "6" () |> should equal -1L
+    Day6.part2 "6" () |> should equal 12542543681221L

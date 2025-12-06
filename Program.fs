@@ -28,7 +28,7 @@ let main argv =
         | "5b" -> Day5.part2 "5" ()
         | "6" -> Day6.part1 "6" ()
         | "6b" -> Day6.part2 "6" ()
-        | "test" -> Day6.part1 "test6" ()
+        | "test" -> Day6.part2 "test6" ()
         | s -> failwith $"Invalid choice {s}"
 
     stopWatch.Stop()
