@@ -49,22 +49,20 @@ let rec cascade (splits:int) (beams:int list) (rows: int list list)=
         let newSplits, beams' = splitBeams beams head
         cascade (splits+newSplits) beams' tail
         
-let rec cascade2 (beams: int list list) (rows: int list list) =
+let rec cascade2 (beams: (int*int64) list) (rows: int list list) =
     match rows with
     | [] -> beams
     | head::tail ->
         match List.isEmpty head with
         | true -> cascade2 beams tail
-        |  -> 
+        | false -> 
         let beams' =
-            beams |> List.map (fun l ->
-            let pos = List.last l
+            beams |> List.map (fun (pos, c) ->
             if List.contains pos head then
-                [l @ [pos-1]; l @ [pos+1]]
-            else [l @ [pos]]
-            ) |> List.concat
-        printfn "%d" <| List.length rows
-        printfn "%d" <| List.length beams
+                [pos-1, c;pos+1,c]
+            else [pos, c]
+            ) |> List.concat |> List.groupBy fst |> List.map (fun (i, l) -> i, List.sumBy snd l)
+       // printfn "%d: %d" (List.length rows) (beams |> List.sumBy snd)
         cascade2 beams' tail
         
 let part1 fn () =
@@ -77,5 +75,5 @@ let part2 fn () =
     let input = readInput fn |> Seq.map List.ofSeq |> List.ofSeq
     let startPos = input |> List.head |> findStart |> Seq.exactlyOne
     let rows = input |> List.tail |> List.map findSplitter
-    let beams = [[startPos]]
-    cascade2 beams rows |> List.length |> int64
+    let beams = [(startPos, 1L)]
+    cascade2 beams rows |> List.sumBy snd |> int64
