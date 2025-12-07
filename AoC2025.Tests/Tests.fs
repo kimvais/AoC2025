@@ -75,4 +75,14 @@ let ``day7, part1`` () =
 [<Fact>]
 let ``day7, part2`` () =
     Day7.part2 "test7" () |> should equal 40L
-    Day7.part2 "7" () |> should equal -1L
+    Day7.part2 "7" () |> should equal 40999072541589L
+
+[<Fact>]
+let ``day8, part1`` () =
+    Day8.part1 "test8" () |> should equal -1L
+    Day8.part1 "8" () |> should equal -1L
+
+[<Fact>]
+let ``day8, part2`` () =
+    Day8.part2 "test8" () |> should equal -1L
+    Day8.part2 "8" () |> should equal -1L
