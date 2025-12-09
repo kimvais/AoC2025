@@ -205,3 +205,7 @@ let (|Regex|_|) pattern s =
     match m.Success with
     | false -> None
     | true -> Some(List.tail [ for g in m.Groups -> g.Value ])
+    
+let inline mean (seq: 'a seq) =
+    let sum, count = Seq.fold (fun (s, c) x -> s + x, c + 1) (LanguagePrimitives.GenericZero, 0) seq
+    LanguagePrimitives.DivideByInt sum count
